@@ -1,0 +1,820 @@
+/* Reset e configurações básicas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    color: #333;
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
+    transition: background-color 0.5s ease;
+}
+
+/* Aplicar temas específicos baseados na página */
+body.natal-page {
+    background: linear-gradient(135deg, #8b0000 0%, #b22222 30%, #ffefef 100%);
+    background-attachment: fixed;
+}
+
+body.ano-novo-page {
+    background: linear-gradient(135deg, #0c2461 0%, #1e3799 30%, #f8f9fa 100%);
+    background-attachment: fixed;
+}
+
+body.index-page {
+    background: linear-gradient(135deg, #8b0000 0%, #0c2461 50%, #1e3799 100%);
+    background-attachment: fixed;
+}
+
+/* Container de decorações temáticas */
+#decorations-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Container principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Cabeçalho */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+    margin-bottom: 40px;
+}
+
+.natal-page .main-header {
+    border-bottom: 3px solid #228B22;
+}
+
+.ano-novo-page .main-header {
+    border-bottom: 3px solid #FFD700;
+}
+
+.index-page .main-header {
+    border-bottom: 3px solid #FFFFFF;
+}
+
+.logo h1 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+}
+
+.natal-page .logo h1 {
+    color: #FFFFFF;
+    text-shadow: 2px 2px 4px rgba(139, 0, 0, 0.5);
+}
+
+.ano-novo-page .logo h1 {
+    color: #FFD700;
+    text-shadow: 2px 2px 4px rgba(12, 36, 97, 0.5);
+}
+
+.index-page .logo h1 {
+    color: #FFFFFF;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.natal-text {
+    color: #228B22;
+    font-style: italic;
+}
+
+.ano-text {
+    color: #FFD700;
+    font-style: italic;
+}
+
+/* Navegação */
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.natal-page .nav-link {
+    color: #FFFFFF;
+    background: rgba(139, 0, 0, 0.7);
+}
+
+.natal-page .nav-link:hover {
+    background: #8B0000;
+    border-color: #228B22;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(34, 139, 34, 0.3);
+}
+
+.ano-novo-page .nav-link {
+    color: #FFFFFF;
+    background: rgba(12, 36, 97, 0.7);
+}
+
+.ano-novo-page .nav-link:hover {
+    background: #0c2461;
+    border-color: #FFD700;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+
+.index-page .nav-link {
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.index-page .nav-link:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: #FFFFFF;
+    transform: translateY(-3px);
+}
+
+/* Conteúdo principal */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+.intro-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 60px 50px;
+    text-align: center;
+    max-width: 700px;
+    width: 100%;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border: 3px solid #8B0000;
+    position: relative;
+    overflow: hidden;
+}
+
+.intro-card::before {
+    content: "❄️ ✨";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.5rem;
+}
+
+.intro-card::after {
+    content: "🎄 🎉";
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+}
+
+.intro-icon {
+    font-size: 5rem;
+    color: #8B0000;
+    margin-bottom: 25px;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.intro-title {
+    font-family: 'Georgia', serif;
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    color: #8B0000;
+}
+
+.intro-subtitle {
+    font-size: 1.4rem;
+    color: #555;
+    margin-bottom: 50px;
+    font-style: italic;
+}
+
+/* Botões */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin: 50px 0;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px 35px;
+    border-radius: 50px;
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-natal {
+    background: linear-gradient(90deg, #8B0000, #B22222);
+    color: white;
+    border: 2px solid #228B22;
+    box-shadow: 0 5px 15px rgba(139, 0, 0, 0.3);
+}
+
+.btn-natal:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(139, 0, 0, 0.5);
+    background: linear-gradient(90deg, #B22222, #8B0000);
+}
+
+.btn-ano-novo {
+    background: linear-gradient(90deg, #0c2461, #1e3799);
+    color: #FFD700;
+    border: 2px solid #FFD700;
+    box-shadow: 0 5px 15px rgba(12, 36, 97, 0.3);
+}
+
+.btn-ano-novo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(12, 36, 97, 0.5);
+    background: linear-gradient(90deg, #1e3799, #0c2461);
+}
+
+/* Rodapé */
+.main-footer {
+    text-align: center;
+    padding: 35px 0;
+    margin-top: 50px;
+    font-size: 1.1rem;
+}
+
+.natal-page .main-footer {
+    border-top: 3px solid #228B22;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.ano-novo-page .main-footer {
+    border-top: 3px solid #FFD700;
+    color: #FFD700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.index-page .main-footer {
+    border-top: 3px solid #FFFFFF;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.intro-footer {
+    margin-top: 40px;
+    padding-top: 25px;
+    border-top: 2px solid #8B0000;
+    color: #8B0000;
+    font-size: 1.2rem;
+}
+
+/* Páginas de mensagem */
+.message-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.message-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 50px 45px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    margin-bottom: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.natal-page .message-card {
+    border: 3px solid #228B22;
+}
+
+.natal-page .message-card::before {
+    content: "🎄";
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 2rem;
+}
+
+.natal-page .message-card::after {
+    content: "🎅";
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 2rem;
+}
+
+.ano-novo-page .message-card {
+    border: 3px solid #FFD700;
+}
+
+.ano-novo-page .message-card::before {
+    content: "🎉";
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 2rem;
+}
+
+.ano-novo-page .message-card::after {
+    content: "✨";
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 2rem;
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding-bottom: 25px;
+}
+
+.natal-page .message-header {
+    border-bottom: 3px solid #8B0000;
+}
+
+.ano-novo-page .message-header {
+    border-bottom: 3px solid #0c2461;
+}
+
+.message-title {
+    font-family: 'Georgia', serif;
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.natal-page .message-title {
+    color: #8B0000;
+}
+
+.ano-novo-page .message-title {
+    color: #0c2461;
+}
+
+.message-icon {
+    font-size: 3.5rem;
+}
+
+.natal-page .message-icon {
+    color: #228B22;
+}
+
+.ano-novo-page .message-icon {
+    color: #FFD700;
+}
+
+.message-content {
+    margin-bottom: 50px;
+}
+
+.message-text {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    color: #444;
+    text-align: justify;
+}
+
+.natal-page .message-text {
+    padding-left: 20px;
+    border-left: 3px solid #8B0000;
+}
+
+.ano-novo-page .message-text {
+    padding-left: 20px;
+    border-left: 3px solid #0c2461;
+}
+
+.highlight-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 25px;
+    border-radius: 10px;
+    margin: 40px 0;
+}
+
+.natal-page .highlight-text {
+    color: #8B0000;
+    background: rgba(139, 0, 0, 0.1);
+    border: 2px solid #8B0000;
+}
+
+.ano-novo-page .highlight-text {
+    color: #0c2461;
+    background: rgba(255, 215, 0, 0.1);
+    border: 2px solid #FFD700;
+}
+
+/* SEÇÃO DE FOTO - AJUSTADA PARA SUAS DIMENSÕES ESPECÍFICAS */
+.photo-section {
+    margin: 60px 0;
+    padding: 40px;
+    border-radius: 15px;
+}
+
+.natal-page .photo-section {
+    background: rgba(139, 0, 0, 0.05);
+    border: 3px dashed #228B22;
+}
+
+.ano-novo-page .photo-section {
+    background: rgba(12, 36, 97, 0.05);
+    border: 3px dashed #FFD700;
+}
+
+.photo-title {
+    font-family: 'Georgia', serif;
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.natal-page .photo-title {
+    color: #8B0000;
+}
+
+.ano-novo-page .photo-title {
+    color: #0c2461;
+}
+
+/* Container da foto - DIMENSIONADO PARA SUAS FOTOS */
+.photo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Natal: 1200x1599 (proporção ~3:4) */
+.natal-page .photo-container {
+    background: rgba(139, 0, 0, 0.1);
+    border: 3px solid #8B0000;
+    max-width: 450px;  /* Proporcional à altura 600px */
+    height: 600px;     /* Altura fixa */
+}
+
+/* Ano Novo: 802x1600 (proporção ~1:2) */
+.ano-novo-page .photo-container {
+    background: rgba(12, 36, 97, 0.1);
+    border: 3px solid #0c2461;
+    max-width: 300px;  /* Proporcional à altura 600px */
+    height: 600px;     /* Altura fixa */
+}
+
+/* Estilo das fotos */
+.photo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+}
+
+/* Ajuste específico para foto de Natal (1200x1599) */
+.natal-page .photo-image {
+    object-position: center center;
+}
+
+/* Ajuste específico para foto de Ano Novo (802x1600) */
+.ano-novo-page .photo-image {
+    object-position: center center;
+}
+
+.photo-image:hover {
+    transform: scale(1.03);
+}
+
+/* Legenda da foto */
+.photo-caption {
+    text-align: center;
+    margin-top: 20px;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.natal-page .photo-caption {
+    color: #8B0000;
+}
+
+.ano-novo-page .photo-caption {
+    color: #0c2461;
+}
+
+/* Moldura decorativa interna */
+.photo-container::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Decorações temáticas nas fotos */
+.natal-page .photo-container::after {
+    content: '🎄';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    z-index: 2;
+    animation: swing 3s ease-in-out infinite;
+    filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
+}
+
+.ano-novo-page .photo-container::after {
+    content: '🎉';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    z-index: 2;
+    animation: bounce 2s ease-in-out infinite;
+    filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(10deg); }
+}
+
+/* Decorações temáticas */
+.decoration {
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+    user-select: none;
+    font-size: 1.8rem;
+}
+
+.snowflake {
+    color: white;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+.firework {
+    color: #FFD700;
+    animation: explode 1.5s ease-out infinite;
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+.ornament {
+    color: #228B22;
+    animation: swing 3s ease-in-out infinite;
+}
+
+@keyframes swing {
+    0%, 100% { transform: rotate(-15deg); }
+    50% { transform: rotate(15deg); }
+}
+
+/* RESPONSIVIDADE - AJUSTES PARA FOTOS */
+@media (max-width: 768px) {
+    .photo-container {
+        max-height: 500px;
+    }
+    
+    .natal-page .photo-container {
+        max-width: 350px;
+        height: 500px;
+    }
+    
+    .ano-novo-page .photo-container {
+        max-width: 250px;
+        height: 500px;
+    }
+    
+    .photo-section {
+        padding: 30px 20px;
+    }
+    
+    .photo-title {
+        font-size: 1.9rem;
+    }
+    
+    .photo-caption {
+        font-size: 1.1rem;
+    }
+    
+    .natal-page .photo-container::after,
+    .ano-novo-page .photo-container::after {
+        font-size: 1.7rem;
+        top: 15px;
+        right: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .photo-container {
+        max-height: 400px;
+    }
+    
+    .natal-page .photo-container {
+        max-width: 280px;
+        height: 400px;
+    }
+    
+    .ano-novo-page .photo-container {
+        max-width: 200px;
+        height: 400px;
+    }
+    
+    .photo-title {
+        font-size: 1.7rem;
+    }
+    
+    .photo-caption {
+        font-size: 1rem;
+    }
+    
+    .photo-section {
+        padding: 25px 15px;
+    }
+    
+    .natal-page .photo-container::after,
+    .ano-novo-page .photo-container::after {
+        font-size: 1.5rem;
+        top: 12px;
+        right: 12px;
+    }
+}
+
+/* AJUSTES DE POSICIONAMENTO PERSONALIZÁVEIS */
+/* Se precisar ajustar o enquadramento das fotos */
+
+/* Para focar mais no rosto (deslocar para cima) */
+.natal-page .photo-image.foco-rosto {
+    object-position: center 25%;
+}
+
+.ano-novo-page .photo-image.foco-rosto {
+    object-position: center 20%;
+}
+
+/* Para mostrar mais o corpo inteiro (deslocar para baixo) */
+.natal-page .photo-image.corpo-inteiro {
+    object-position: center 40%;
+}
+
+.ano-novo-page .photo-image.corpo-inteiro {
+    object-position: center 35%;
+}
+
+/* Ajuste personalizado (mude o valor percentual) */
+.natal-page .photo-image.ajuste-personalizado {
+    object-position: center 30%; /* 0% = topo, 100% = base */
+}
+
+.ano-novo-page .photo-image.ajuste-personalizado {
+    object-position: center 25%; /* 0% = topo, 100% = base */
+}
+
+/* Efeito de brilho nas fotos */
+.photo-container:hover::before {
+    border-color: rgba(255, 255, 255, 0.8);
+    transition: border-color 0.3s ease;
+}
+
+/* Efeito de brilho externo ao passar o mouse */
+.photo-container:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Responsividade geral */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        gap: 25px;
+    }
+    
+    .logo h1 {
+        font-size: 2.2rem;
+        text-align: center;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .intro-title {
+        font-size: 2.8rem;
+    }
+    
+    .message-title {
+        font-size: 2.5rem;
+    }
+    
+    .message-text {
+        font-size: 1.2rem;
+    }
+    
+    .btn {
+        padding: 18px 30px;
+        font-size: 1.2rem;
+    }
+    
+    .intro-card, .message-card {
+        padding: 40px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .intro-card, .message-card {
+        padding: 30px 20px;
+    }
+    
+    .intro-title {
+        font-size: 2.2rem;
+    }
+    
+    .message-title {
+        font-size: 2rem;
+    }
+    
+    .intro-icon {
+        font-size: 4rem;
+    }
+    
+    .message-icon {
+        font-size: 2.5rem;
+    }
+    
+    .btn {
+        padding: 15px 25px;
+        font-size: 1.1rem;
+    }
+}
